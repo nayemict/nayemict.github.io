@@ -30,8 +30,7 @@
         });
     }
     
-    
-    // Skills
+   // Skills
     $('.skills').waypoint(function () {
         $('.progress .progress-bar').each(function () {
             $(this).css("width", $(this).attr("aria-valuenow") + '%');
@@ -39,7 +38,7 @@
     }, {offset: '80%'});
     
     
-    // Porfolio isotope and filter
+    // Portfolio isotope and filter
     var portfolioIsotope = $('.portfolio-container').isotope({
         itemSelector: '.portfolio-item',
         layoutMode: 'fitRows'
@@ -52,6 +51,22 @@
         portfolioIsotope.isotope({filter: $(this).data('filter')});
     });
     
+    // ---------------------------------------------------------
+    // NEW: Activity isotope and filter
+    // ---------------------------------------------------------
+    var activityIsotope = $('.activity-container').isotope({
+        itemSelector: '.activity-item',
+        layoutMode: 'fitRows'
+    });
+
+    $('#activity-flters li').on('click', function () {
+        $("#activity-flters li").removeClass('filter-active');
+        $(this).addClass('filter-active');
+
+        activityIsotope.isotope({filter: $(this).data('filter')});
+    });
+    // ---------------------------------------------------------
+
     
     // Review slider
     $('.review-slider').slick({
